@@ -61,4 +61,9 @@ def compose(seed: int = POEM_SEED) -> str:
 
 
 if __name__ == "__main__":
-    print(compose(), end="")
+    import os
+    os.makedirs("/output", exist_ok=True)
+    poem = compose()
+    with open("/output/entry.txt", "w", encoding="utf-8") as f:
+        f.write(poem)
+    print(poem, end="")
